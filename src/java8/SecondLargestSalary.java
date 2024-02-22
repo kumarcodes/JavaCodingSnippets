@@ -18,6 +18,9 @@ class Employee {
     public int getSalary() {
         return salary;
     }
+    public String getName() {
+        return name;
+    }
 
 }
 
@@ -30,6 +33,8 @@ public class SecondLargestSalary {
                 new Employee("Anand", 75000),
                 new Employee("Rohit", 80000),
                 new Employee("Raj", 70000));
+
+        //Find the second-largest Salary.
         int secondLargest = employeeList.stream()
                 .mapToInt(Employee::getSalary)
                 .distinct()
@@ -38,5 +43,11 @@ public class SecondLargestSalary {
                 findFirst()
                 .orElseThrow(() -> new RuntimeException("No second Largest Salary Found"));
         System.out.println(secondLargest);
+
+        //Find the second-largest salary employee name
+        Employee emp = employeeList.stream().distinct().sorted(Comparator.comparingInt(Employee::getSalary).reversed()).skip(1)
+                .findFirst()
+                .orElseThrow(() ->  new RuntimeException("No second largest salary employee is present."));
+        System.out.println(emp.getName());
     }
 }
