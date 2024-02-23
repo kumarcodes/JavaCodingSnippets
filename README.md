@@ -1,11 +1,4 @@
 
-#Interview Prepration Java Code Snippets
-
-
-
-
-
-
 ## Overview
 
 This repository contains a collection of java coding snippets and solutions that I have prepared for my interview practice. These snippets covers various java related topics which is commonly asked in 
