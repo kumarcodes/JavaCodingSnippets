@@ -1,4 +1,4 @@
-package javacodes;
+package corejava;
 
 class Singleton {
     private static Singleton singleInstance = null;

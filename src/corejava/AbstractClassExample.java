@@ -1,4 +1,4 @@
-package javacodes;
+package corejava;
 
 abstract class MyClass {
     public static void methodStatic() {
