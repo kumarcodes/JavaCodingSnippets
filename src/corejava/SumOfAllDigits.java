@@ -1,4 +1,4 @@
-package corejava;
+package javacodes;
 
 public class SumOfAllDigits {
     public static void main(String[] args) {
