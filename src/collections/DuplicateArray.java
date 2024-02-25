@@ -3,7 +3,7 @@ package collections;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DuplicateInArray {
+public class DuplicateArray {
     public static void main(String[] args) {
         int[] arr = {1, 2, 5, 2, 6, 4, 3, 2, 1, 5};
         HashMap<Integer, Integer> frequencyMap = new HashMap<>();
