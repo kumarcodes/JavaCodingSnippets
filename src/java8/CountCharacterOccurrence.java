@@ -1,4 +1,10 @@
 package java8;
+/*
+  Author: Rohit Sharma.
+  Date: 12/03/24
+  Time: 05:06 PM
+  Problem Statement: Given a string, count the occurence of each character in it.
+ */
 
 import java.util.Arrays;
 import java.util.Map;
