@@ -15,8 +15,12 @@ public class FilterEmployeesByAge {
         employees.add(new Employees(4, "Jagan", 27, 109300.0, "SE"));
         employees.add(new Employees(5, "Allam", 27, 107300.0, "SE"));
 
+
+        //1. Sort the employees by age
         Map<Integer, List<Employees>> employeesIntegerMap = employees.stream()
                 .collect(Collectors.groupingBy(emp -> emp.getAge()));
+
+        System.out.println(employeesIntegerMap);
 
         employeesIntegerMap.forEach((age, names) -> {
             System.out.println("Age: " + age);
@@ -29,6 +33,16 @@ public class FilterEmployeesByAge {
             System.out.println(entry.getKey() + " " + entry.getValue().size());
 
         }
+
+        //2. Find min, max and avg of salary.
+        double minSal = employees.stream().mapToDouble(emp -> emp.getSalary()).summaryStatistics().getMin();
+        System.out.println("Minimum Salary:" + minSal);
+        double maxSal = employees.stream().mapToDouble(emp -> emp.getSalary()).summaryStatistics().getMax();
+        System.out.println("Maximum Salary:" + maxSal);
+        double avgSal = employees.stream().mapToDouble(emp -> emp.getSalary()).summaryStatistics().getAverage();
+        System.out.println("Average Salary:" + avgSal);
+        int count = (int) employees.stream().mapToInt(emp ->emp.getId()).summaryStatistics().getCount();
+        System.out.println("Count of employees:" + count);
 
     }
 }
