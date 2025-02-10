@@ -34,15 +34,27 @@ public class FilterEmployeesByAge {
 
         }
 
-        //2. Find min, max and avg of salary.
+        //2. Find min salary.
         double minSal = employees.stream().mapToDouble(emp -> emp.getSalary()).summaryStatistics().getMin();
         System.out.println("Minimum Salary:" + minSal);
+        //3. Find maximum salary
         double maxSal = employees.stream().mapToDouble(emp -> emp.getSalary()).summaryStatistics().getMax();
         System.out.println("Maximum Salary:" + maxSal);
+        //4. Find average salary
         double avgSal = employees.stream().mapToDouble(emp -> emp.getSalary()).summaryStatistics().getAverage();
         System.out.println("Average Salary:" + avgSal);
-        int count = (int) employees.stream().mapToInt(emp ->emp.getId()).summaryStatistics().getCount();
+        //5. Count total number of Employees
+        int count = (int) employees.stream().mapToInt(emp -> emp.getId()).summaryStatistics().getCount();
         System.out.println("Count of employees:" + count);
+        //6. Sort ages in ascending order.
+        List<Integer> ages = employees.stream().mapToInt(emp -> emp.getAge()).boxed().sorted().collect(Collectors.toList());
+        System.out.println("Ages sorted in ascending order:" + ages);
+        //7. Task Select age from 1st position till 3rd position.
+        List<Integer> limitTwo = ages.stream().skip(1).limit(2).collect(Collectors.toUnmodifiableList());
+        System.out.println("Limit ascending order:" + limitTwo);
+        //8. Task Convert all the employee names into UPPERCASE
+        List<String> names = employees.stream().map(emp -> emp.getName()).collect(Collectors.toUnmodifiableList());
+        names.stream().map(name -> name.toUpperCase()).forEach(System.out::println);
 
     }
 }
